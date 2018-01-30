@@ -9,15 +9,15 @@ Install package
 
 You can publish the config to change default setting like the base of your title, twitter handle, etc.
 
-`php artisan vendor:publish --provider="Jwohlfert23\LaravelSeo\ServiceProvider`
+`php artisan vendor:publish --provider="Jwohlfert23\LaravelSeo\ServiceProvider"`
 
 Add `Jwohlfert23\LaravelSeo\SeoTrait` to your base controller.  This will allow you to easily change the page title and other meta information directly from your controller like so...
 ```
 public function index() 
 {
-    $this->seo()->setTitle('Home')->setDescription('This is out home page')
+    $this->seo()->setTitle('Home')->setDescription('This is out home page');
      
-    return view('home') 
+    return view('home');
 }
 ```
 
