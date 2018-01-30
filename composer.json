@@ -1,0 +1,47 @@
+{
+  "name": "jwohlfert23/laravel-seo",
+  "description": "SEO tools to insert meta data in laravel projects",
+  "keywords": [
+    "laravel",
+    "seo"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jack Wohlfert",
+      "email": "jack.wohlfert@gmail.com"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/jwohlfert23/laravel-seo.git"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Jwohlfert23\\LaravelSeo\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=5.5.9",
+    "nesbot/carbon": "^1.22",
+    "illuminate/config": "~5",
+    "illuminate/support": "~5"
+  },
+  "require-dev": {
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Jwohlfert23\\LaravelSeo\\ServiceProvider"
+      ]
+    }
+  },
+  "config": {
+    "preferred-install": "dist"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+
+}
