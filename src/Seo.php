@@ -91,6 +91,12 @@ class Seo
         return $this;
     }
 
+    public function setProductAttribute($key, $value)
+    {
+        array_set($this->meta, 'product.' . $key, $value);
+        return $this;
+    }
+
     public function render()
     {
         $view = view('seo::meta', ['meta' => $this->meta])->render();

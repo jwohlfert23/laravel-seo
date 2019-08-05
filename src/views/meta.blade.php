@@ -16,11 +16,12 @@
 @endif
 
 @if(!empty($meta['description']))
-    <meta name="description" content="{{ str_limit($meta['description'], $limit = 200, $end = '...') }}"/>
+    <meta name="description"
+          content="{{ str_limit($meta['description'], $limit = 200, $end = '...') }}" />
 @endif
 
 @if(!empty($meta['keywords']))
-    <meta name="keywords" content="{{ $meta['keywords'] }}"/>
+    <meta name="keywords" content="{{ $meta['keywords'] }}" />
 @endif
 
 @if(!empty($meta['author']))
@@ -29,45 +30,45 @@
 
 
 {{-- Facebook Metadata --}}
-<meta property="og:type" content="website"/>
+<meta property="og:type" content="website" />
 
 @if(!empty($meta['og_title']))
-    <meta property="og:title" content="{{ $meta['og_title'] }}"/>
+    <meta property="og:title" content="{{ $meta['og_title'] }}" />
     <meta name="twitter:title" content="{{ $meta['og_title'] }}">
 
 @elseif(!empty($meta['title']))
-    <meta property="og:title" content="{{ $meta['title'] }}"/>
-    <meta name="twitter:title" content="{{ $meta['title'] }}"/>
+    <meta property="og:title" content="{{ $meta['title'] }}" />
+    <meta name="twitter:title" content="{{ $meta['title'] }}" />
 @endif
 
 @if(!empty($meta['og_description']))
     <?php $description = str_limit($meta['og_description'], $limit = 250, $end = '...'); ?>
-    <meta property="og:description" content="{{$description}}"/>
-    <meta name="twitter:description" content="{{$description }}"/>
+    <meta property="og:description" content="{{$description}}" />
+    <meta name="twitter:description" content="{{$description }}" />
 
 @elseif(!empty($meta['description']))
     <?php $description = str_limit($meta['description'], $limit = 250, $end = '...'); ?>
-    <meta property="og:description" content="{{$description }}"/>
-    <meta name="twitter:description" content="{{$description }}"/>
+    <meta property="og:description" content="{{$description }}" />
+    <meta name="twitter:description" content="{{$description }}" />
 @endif
 
 @if(!empty($meta['image']))
-    <meta name="image" content="{{ $meta['image'] }}"/>
-    <meta property="og:image" content="{!! $meta['image'] !!}"/>
-    <meta property="twitter:image" content="{{ $meta['image'] }}"/>
+    <meta name="image" content="{{ $meta['image'] }}" />
+    <meta property="og:image" content="{!! $meta['image'] !!}" />
+    <meta property="twitter:image" content="{{ $meta['image'] }}" />
 @endif
 
 @if(!empty($meta['image_width']))
-    <meta property="og:image:width" content="{{$meta['image_width']}}"/>
+    <meta property="og:image:width" content="{{$meta['image_width']}}" />
 @endif{{--Facebook Metadata /--}}
 @if(!empty($meta['image_height']))
-    <meta property="og:image:height" content="{{$meta['image_height'] }}"/>
+    <meta property="og:image:height" content="{{$meta['image_height'] }}" />
 @endif
 
 {{-- Twitter Metadata --}}
-<meta name="twitter:card" content="summary"/>
+<meta name="twitter:card" content="summary" />
 @if($handle = config('seo.twitter_handle'))
-    <meta name="twitter:site" content="{{$handle}}"/>
+    <meta name="twitter:site" content="{{$handle}}" />
 @endif
 <meta name="twitter:domain" content="{{request()->getHttpHost()}}">
 
@@ -85,5 +86,11 @@
 @endif
 
 @if(!empty($meta['type']))
-    <meta property="og:type" content="{{$meta['type']}}"/>
+    <meta property="og:type" content="{{$meta['type']}}" />
+@endif
+
+@if(!empty($meta['product']))
+    @foreach($meta['product'] as $key => $value)
+        <meta name="product:{{$key}}" content="{{$value}}" />
+    @endforeach
 @endif
