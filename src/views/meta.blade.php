@@ -53,9 +53,9 @@
 @endif
 
 @if(!empty($meta['image']))
-    <meta name="image" content="{{ $meta['image'] }}" />
+    <meta name="image" content="{!! $meta['image'] !!}" />
     <meta property="og:image" content="{!! $meta['image'] !!}" />
-    <meta property="twitter:image" content="{{ $meta['image'] }}" />
+    <meta property="twitter:image" content="{!! $meta['image'] !!}" />
 @endif
 
 @if(!empty($meta['image_width']))
@@ -74,9 +74,9 @@
 
 {{-- URL/Canonical Metadata --}}
 @if(!empty($meta['url']))
-    <meta property="og:url" content="{{$meta['url']}}">
+    <meta property="og:url" content="{!! $meta['url'] !!}">
 @else
-    <meta property="og:url" content="{{request()->fullUrl()}}">
+    <meta property="og:url" content="{!! request()->fullUrl() !!}">
 @endif
 
 {{-- Article Metadata --}}
