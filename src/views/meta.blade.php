@@ -17,7 +17,7 @@
 
 @if(!empty($meta['description']))
     <meta name="description"
-          content="{{ str_limit($meta['description'], $limit = 200, $end = '...') }}" />
+          content="{{ Str::limit($meta['description'], $limit = 200, $end = '...') }}" />
 @endif
 
 @if(!empty($meta['keywords']))
@@ -42,12 +42,12 @@
 @endif
 
 @if(!empty($meta['og_description']))
-    <?php $description = str_limit($meta['og_description'], $limit = 250, $end = '...'); ?>
+    <?php $description = Str::limit($meta['og_description'], $limit = 250, $end = '...'); ?>
     <meta property="og:description" content="{{$description}}" />
     <meta name="twitter:description" content="{{$description }}" />
 
 @elseif(!empty($meta['description']))
-    <?php $description = str_limit($meta['description'], $limit = 250, $end = '...'); ?>
+    <?php $description = Str::limit($meta['description'], $limit = 250, $end = '...'); ?>
     <meta property="og:description" content="{{$description }}" />
     <meta name="twitter:description" content="{{$description }}" />
 @endif
@@ -69,8 +69,8 @@
 <meta name="twitter:card" content="summary" />
 @if($handle = config('seo.twitter_handle'))
     <meta name="twitter:site" content="{{$handle}}" />
+    <meta name="twitter:domain" content="{{request()->getHttpHost()}}">
 @endif
-<meta name="twitter:domain" content="{{request()->getHttpHost()}}">
 
 {{-- URL/Canonical Metadata --}}
 @if(!empty($meta['url']))

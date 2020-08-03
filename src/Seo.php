@@ -2,6 +2,8 @@
 
 namespace Jwohlfert23\LaravelSeo;
 
+use Illuminate\Support\Arr;
+
 class Seo
 {
     protected $meta = [];
@@ -9,20 +11,20 @@ class Seo
 
     public function setAbsoluteTitle($bool = true)
     {
-        array_set($this->meta, 'absolute_title', $bool);
+        Arr::set($this->meta, 'absolute_title', $bool);
         return $this;
     }
 
 
     public function setOgTitle($bool = true)
     {
-        array_set($this->meta, 'og_title', $bool);
+        Arr::set($this->meta, 'og_title', $bool);
         return $this;
     }
 
     public function setOgDescription($bool = true)
     {
-        array_set($this->meta, 'og_description', $bool);
+        Arr::set($this->meta, 'og_description', $bool);
         return $this;
     }
 
@@ -31,69 +33,69 @@ class Seo
         if (is_array($value))
             $value = implode($this->separator, $value);
 
-        array_set($this->meta, 'title', $value);
+        Arr::set($this->meta, 'title', $value);
         return $this;
     }
 
     public function prependTitle($value, $separator = ' - ')
     {
-        $title = array_get($this->meta, 'title');
-        array_set($this->meta, 'title', $value . $separator . $title);
+        $title = Arr::get($this->meta, 'title');
+        Arr::set($this->meta, 'title', $value . $separator . $title);
         return $this;
     }
 
     public function setImage($value, $width = null, $height = null)
     {
-        array_set($this->meta, 'image', $value);
+        Arr::set($this->meta, 'image', $value);
 
         if ($width) {
-            array_set($this->meta, 'image_width', (int)$width);
+            Arr::set($this->meta, 'image_width', (int)$width);
         }
         if ($height) {
-            array_set($this->meta, 'image_height', (int)$height);
+            Arr::set($this->meta, 'image_height', (int)$height);
         }
         return $this;
     }
 
     public function setDescription($value)
     {
-        array_set($this->meta, 'description', $value);
+        Arr::set($this->meta, 'description', $value);
         return $this;
     }
 
     public function setAuthor($value)
     {
-        array_set($this->meta, 'author', $value);
+        Arr::set($this->meta, 'author', $value);
         return $this;
     }
 
     public function setKeywords($value)
     {
-        array_set($this->meta, 'keywords', $value);
+        Arr::set($this->meta, 'keywords', $value);
         return $this;
     }
 
     public function setUrl($value)
     {
-        array_set($this->meta, 'url', $value);
+        Arr::set($this->meta, 'url', $value);
         return $this;
     }
 
     public function setPublishedTime($value)
     {
-        array_set($this->meta, 'published_time', $value);
+        Arr::set($this->meta, 'published_time', $value);
         return $this;
     }
 
     public function setType($value)
     {
-        array_set($this->meta, 'type', $value);
+        Arr::set($this->meta, 'type', $value);
         return $this;
     }
 
     public function setProductAttribute($key, $value)
     {
-        array_set($this->meta, 'product.' . $key, $value);
+        Arr::set($this->meta, 'product.' . $key, $value);
         return $this;
     }
 
